@@ -2,18 +2,34 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 class Program
 {
     static void Main(string[] args)
     {
         Belief b = new Belief("p, q, p > q, a, !b, !c, y, z, z > x, y > a");
-        b.PrintBeliefs();
         Console.WriteLine("\n");
-        b.Revise("!a");
         Console.WriteLine("\n");
-        b.PrintBeliefs();
-
+        Console.WriteLine("Welcome to out belief revision assignment! Please make sure that every belief you enter have spaces between each proposition and operator, otherwise the program may not work as intended.");
+        Console.WriteLine("Please note that we have decided to use ! as negation, <> as biconditional, > as implication, V as disjunction and & as conjuction operators. This is done, because of easier symbols on a pc.");
+        Console.WriteLine("\n");
+        Console.WriteLine("\n");
+        while (true)
+        {
+            Console.WriteLine("Your current belief base is: " + b.PrintBeliefs());
+            Console.WriteLine("\n");
+            Console.WriteLine("Please enter your new belief (exit to exit):");
+            string belief = Console.ReadLine();
+            if(belief.Equals("exit"))
+            {
+                break;
+            }
+            else
+            {
+                b.Revise(belief);
+            }
+        }
     }
 }
 
@@ -37,14 +53,14 @@ namespace BeliefBase
             return beliefSet.Split(delimiter);
         }
 
-        public void PrintBeliefs()
+        public string PrintBeliefs()
         {
             string printstring = "";
             foreach (string belief in beliefs)
             {
                 printstring += belief + ", ";
             }
-            Console.WriteLine(printstring);
+            return printstring;
         }
 
         public void Contract(string belief) 
