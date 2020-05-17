@@ -11,7 +11,7 @@ class Program
         Belief b = new Belief("p, q, p > q, a, !b, !c, y, z, z > x, y > a");
         Console.WriteLine("\n");
         Console.WriteLine("\n");
-        Console.WriteLine("Welcome to out belief revision assignment! Please make sure that every belief you enter have spaces between each proposition and operator, otherwise the program may not work as intended.");
+        Console.WriteLine("Welcome to our belief revision assignment! Please make sure that every belief you enter have spaces between each proposition and operator, otherwise the program may not work as intended.");
         Console.WriteLine("Please note that we have decided to use ! as negation, <> as biconditional, > as implication, V as disjunction and & as conjuction operators. This is done, because of easier symbols on a pc.");
         Console.WriteLine("\n");
         Console.WriteLine("\n");
